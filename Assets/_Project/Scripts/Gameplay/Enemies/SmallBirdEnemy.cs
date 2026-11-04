@@ -84,12 +84,12 @@ namespace PhoenixReborn.Gameplay.Enemies
                 ResetFireTimer();
             }
 
-            if (transform.position.y < -7f)
+            if (transform.position.y < -7f - Systems.CameraWidthFitter.VerticalExtra)
             {
                 float maxSpawnX = amp * 0.6f;
                 float randomX = Random.Range(-maxSpawnX, maxSpawnX);
                 _startX = randomX;
-                transform.position = new Vector3(randomX, 6.5f, transform.position.z);
+                transform.position = new Vector3(randomX, 6.5f + Systems.CameraWidthFitter.VerticalExtra, transform.position.z);
             }
         }
 

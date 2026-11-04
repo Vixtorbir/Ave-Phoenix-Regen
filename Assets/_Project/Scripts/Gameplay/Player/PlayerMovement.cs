@@ -61,7 +61,7 @@ namespace PhoenixReborn.Gameplay
             EnforceZeroGravity();
             if (centerOnStart)
             {
-                transform.position = new Vector3(0f, startY, transform.position.z);
+                transform.position = new Vector3(0f, startY - Systems.CameraWidthFitter.VerticalExtra, transform.position.z);
             }
         }
 

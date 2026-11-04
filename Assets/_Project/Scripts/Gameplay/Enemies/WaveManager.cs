@@ -172,7 +172,7 @@ namespace PhoenixReborn.Gameplay.Enemies
 
         private Vector3 CalculateSpawnPosition(WaveDataSO waveData, int index)
         {
-            float y = Mathf.Max(waveData.SpawnYPosition, 6.2f);
+            float y = Mathf.Max(waveData.SpawnYPosition, 6.2f) + Systems.CameraWidthFitter.VerticalExtra;
             float range = GetEffectiveSpawnWidth(waveData);
             int perRow = waveData.EnemiesPerRow;
 

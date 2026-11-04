@@ -192,7 +192,7 @@ namespace PhoenixReborn.Gameplay.Arcade
                     Enemy mediumEnemy = _mediumPhoenixPool.Get();
                     if (mediumEnemy != null)
                     {
-                        Vector3 spawnPos = new Vector3(startX + (i * spacingX), 6.5f, 0f);
+                        Vector3 spawnPos = new Vector3(startX + (i * spacingX), 6.5f + Systems.CameraWidthFitter.VerticalExtra, 0f);
                         mediumEnemy.transform.position = spawnPos;
                         mediumEnemy.Init(_mediumPhoenixPool);
                         RegisterEnemy(mediumEnemy);
@@ -213,7 +213,7 @@ namespace PhoenixReborn.Gameplay.Arcade
                     {
                         float xSpread = 3.6f;
                         float x = UnityEngine.Random.Range(-xSpread * 0.5f, xSpread * 0.5f);
-                        smallEnemy.transform.position = new Vector3(x, 6.0f, 0f);
+                        smallEnemy.transform.position = new Vector3(x, 6.0f + Systems.CameraWidthFitter.VerticalExtra, 0f);
                         smallEnemy.Init(_smallBirdPool);
                         RegisterEnemy(smallEnemy);
                     }

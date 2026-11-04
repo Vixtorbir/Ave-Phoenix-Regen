@@ -44,8 +44,8 @@ namespace PhoenixReborn.Gameplay.Enemies.Boss
         private float _minionTimer;
         private readonly List<Enemy> _activeMinions = new List<Enemy>();
 
-        public Vector3 SpawnStartPosition => spawnStartPosition;
-        public Vector3 BattleStartPosition => battleStartPosition;
+        public Vector3 SpawnStartPosition => spawnStartPosition + (Vector3.up * Systems.CameraWidthFitter.VerticalExtra);
+        public Vector3 BattleStartPosition => battleStartPosition + (Vector3.up * Systems.CameraWidthFitter.VerticalExtra);
         public float Phase1Speed => phase1Speed;
         public float Phase1FireRate => phase1FireRate;
         public float Phase2Speed => phase2Speed;
@@ -99,7 +99,7 @@ namespace PhoenixReborn.Gameplay.Enemies.Boss
 
         private void Start()
         {
-            transform.position = spawnStartPosition;
+            transform.position = SpawnStartPosition;
             ChangeState(new BossIntroState());
         }
 
@@ -184,7 +184,7 @@ namespace PhoenixReborn.Gameplay.Enemies.Boss
 
             Enemy minion = Instantiate(prefab);
             float spawnX = (UnityEngine.Random.value > 0.5f ? -1 : 1) * UnityEngine.Random.Range(2.5f, 4.5f);
-            minion.transform.position = new Vector3(spawnX, 6.8f, 0f);
+            minion.transform.position = new Vector3(spawnX, 6.8f + Systems.CameraWidthFitter.VerticalExtra, 0f);
             minion.Init(null);
             _activeMinions.Add(minion);
         }
