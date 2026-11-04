@@ -6,13 +6,11 @@ arcades when he was young, so it ships with a story mode and a dedication screen
 
 **[Download the Android APK](https://github.com/Vixtorbir/Ave-Phoenix-Regen/releases/latest)**
 
-<!-- TODO: add a 20–30 s gameplay GIF here (boss fight + shield). -->
-
 | | |
 |---|---|
 | **Role** | Solo project: design and programming |
 | **Engine** | Unity 6 (6000.3.16f1), URP 2D, New Input System |
-| **Platforms** | Android (APK, portrait) and Windows |
+| **Platforms** | Android (APK, portrait, 64-bit) and Windows |
 | **Language** | C# |
 | **Status** | Playable: Story mode and endless Arcade mode |
 
@@ -67,6 +65,11 @@ All gameplay code lives in [`Assets/_Project/Scripts`](Assets/_Project/Scripts).
   [`StarfieldTexture.cs`](Assets/_Project/Scripts/Systems/StarfieldTexture.cs)
 - **Game feel.** Hit flash, camera shake, floating scores and URP bloom/vignette.
   [`Systems/`](Assets/_Project/Scripts/Systems)
+- **Screen support.** On phones taller than 9:16 the camera zooms out to keep the same playfield width,
+  and fixed spawn heights follow it so enemies still enter from off screen. The HUD only moves when a
+  camera cutout would actually cover it.
+  [`CameraWidthFitter.cs`](Assets/_Project/Scripts/Systems/CameraWidthFitter.cs) ·
+  [`CutoutAvoider.cs`](Assets/_Project/Scripts/UI/CutoutAvoider.cs)
 
 ## Running it
 
